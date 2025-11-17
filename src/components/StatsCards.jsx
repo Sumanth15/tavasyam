@@ -19,7 +19,14 @@ const StatsCards = () => {
             <p>{s.value}</p>
           </div>
 
-          <svg className="wave-bg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+           <svg
+            className="wave-bg"
+            viewBox="0 0 400 200"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"   // <<-- IMPORTANT: stretch to fill
+            aria-hidden="true"
+            focusable="false"
+          >
             <path d="M0,100 C50,120 100,80 150,100 C200,120 250,80 300,100 C350,120 400,80 400,100 L400,200 L0,200 Z" fill="rgba(255,255,255,0.08)"/>
           </svg>
         </div>
