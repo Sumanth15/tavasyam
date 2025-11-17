@@ -1,0 +1,36 @@
+/* GoalProgress.css */
+.goal-progress-card{
+  padding:18px;
+  border-radius:12px;
+  background:white;
+  box-shadow: 0 6px 18px rgba(10,10,10,0.04);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.gp-top{ display:flex; align-items:center; justify-content:space-between }
+.gp-top h3{ margin:0; font-size:16px }
+.gp-controls select{ padding:8px 10px; border-radius:8px; border:1px solid #eee; background:#fff }
+
+.gp-chart-wrapper{
+  position:relative;
+  height:320px;
+  width:100%;
+}
+
+/* custom legend */
+.gp-legend{ display:flex; gap:18px; align-items:center; padding-top:8px; border-top:1px solid #f6f6f6; font-size:13px; color:#666 }
+.legend-item{ display:flex; gap:8px; align-items:center }
+.dot{ width:10px; height:10px; border-radius:50% }
+.dot.workout{ background:#00bcd4 }
+.dot.calories{ background:#ff9800 }
+.dot.steps{ background:#9c27b0 }
+
+/* responsive: reduce height on small screens */
+@media (max-width: 900px){
+  .gp-chart-wrapper{ height:260px }
+}
+@media (max-width:520px){
+  .gp-chart-wrapper{ height:220px }
+}

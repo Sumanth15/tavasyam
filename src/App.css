@@ -1,0 +1,85 @@
+:root{
+  --sidebar-width: 260px;
+  --right-width: 340px;
+  --gutter: 24px;
+  --bg: #f4f7fb;
+  --card-radius: 14px;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+body{background:var(--bg);color:#222}
+
+/* Grid app shell */
+.app-shell{
+  display:grid;
+  grid-template-columns: var(--sidebar-width) 1fr var(--right-width);
+  grid-template-rows: 80px 1fr;
+  grid-template-areas:
+    "sidebar header header"
+    "sidebar main right";
+  min-height:100vh;
+  gap:0;
+}
+
+/* areas */
+.sidebar-area{grid-area:sidebar;padding:var(--gutter);border-right:1px solid rgba(0,0,0,0.04);background:transparent;position:relative;z-index:40}
+.header-area{grid-area:header;padding:0 24px;display:flex;align-items:center;justify-content:flex-start;background:transparent;border-bottom:1px solid rgba(0,0,0,0.04);z-index:30}
+.main-area{grid-area:main;padding:var(--gutter);overflow:auto}
+.right-area{grid-area:right;padding:var(--gutter);border-left:1px solid rgba(0,0,0,0.04);background:transparent}
+
+/* main inner column (center content) */
+.main-inner{max-width:1100px;margin:0 auto;display:grid;grid-auto-rows:min-content;gap:20px}
+
+/* hero takes full width */
+.hero-section{width:100%}
+
+/* right area sticky stack */
+.right-stack{position:sticky;top:20px;display:grid;gap:20px}
+
+/* Mobile / tablet responsive adjustments */
+
+/* <=1100px: switch to single column layout where header stays on top,
+   main content shown next and right-area stacked under main */
+@media (max-width: 1100px) {
+  .app-shell{
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px auto auto;
+    grid-template-areas:
+      "header"
+      "main"
+      "right";
+  }
+
+  .sidebar-area{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
+    width:320px;
+    background:transparent;
+    padding:20px;
+    transform:translateX(-120%);
+    transition: transform 220ms ease;
+    box-shadow: 0 8px 30px rgba(10,10,10,0.12);
+    z-index:80;
+    border-right:none;
+    overflow:auto;
+  }
+  .sidebar-area.open{ transform:translateX(0); }
+
+  .header-area{ padding: 0 16px; }
+  .main-area{ padding:16px }
+  .right-area{ padding:16px; border-left:none; border-top:1px solid rgba(0,0,0,0.04); }
+
+  /* allow right-area to be visible stacked under main */
+  .right-stack{ position: relative; top: 0; }
+  .main-inner{ max-width:100%; margin:0; gap:16px }
+}
+
+/* <=520px smaller mobile */
+@media (max-width: 520px) {
+  .header-area{ padding: 0 12px; }
+  .sidebar-area{ width:280px; }
+  .main-area{ padding:12px }
+}

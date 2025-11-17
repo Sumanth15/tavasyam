@@ -1,0 +1,20 @@
+/* StatsCards.css */
+.stats-cards-container{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:18px;
+  width:100%;
+}
+.stat-card{ position:relative; padding:22px; border-radius:12px; min-height:120px; color:white; overflow:hidden }
+.stat-icon{ width:56px; height:56px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:26px; background:rgba(255,255,255,0.15) }
+.stat-info h3{ margin:8px 0 0 0; font-size:18px }
+.stat-info p{ margin:6px 0 0 0; opacity:0.94 }
+.wave-bg{ position:absolute; bottom:0; left:0; width:100%; height:100%; pointer-events:none; opacity:0.6 }
+
+/* responsive: 2 columns at medium, 1 column at small */
+@media (max-width: 900px){
+  .stats-cards-container{ grid-template-columns: repeat(2, 1fr) }
+}
+@media (max-width: 520px){
+  .stats-cards-container{ grid-template-columns: 1fr }
+}

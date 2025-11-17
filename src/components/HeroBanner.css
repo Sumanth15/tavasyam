@@ -1,0 +1,19 @@
+/* HeroBanner.css */
+.hero-banner{
+  display:flex; gap:20px; align-items:center; background:linear-gradient(135deg,#ff6b35 0%,#ff8f5e 100%);
+  border-radius:16px; padding:28px; color:white; overflow:hidden;
+}
+.hero-content{ flex:1; z-index:2 }
+.hero-content h1{ margin:0; font-size:28px; line-height:1.05; font-weight:700 }
+.hero-content p{ margin-top:12px; opacity:0.95; font-size:15px; max-width:640px }
+
+.hero-image{ flex:1; max-width:420px; display:flex; justify-content:flex-end }
+.hero-image img{ width:100%; border-radius:12px; object-fit:cover }
+
+/* responsive: on smaller screens show image ABOVE the content */
+@media (max-width: 968px){
+  /* column-reverse will put image first in DOM sequence (image above content) */
+  .hero-banner{ flex-direction: column-reverse; text-align:center; padding:22px }
+  .hero-content h1{ font-size:22px }
+  .hero-image{ max-width:100%; width:100%; margin-bottom:12px }
+}

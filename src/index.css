@@ -1,0 +1,36 @@
+/* index.css - global reset + variables + base typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+  --bg: #f4f7fb;
+  --muted: #9aa3ad;
+  --accent: #ff6b35;
+  --card-radius: 12px;
+  --page-gutter: 24px;
+  --transition: 180ms ease;
+}
+
+/* Reset / base */
+*{box-sizing:border-box}
+html,body,#root{height:100%;margin:0}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color: #222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.4;
+  font-size:14px;
+}
+
+/* Utility */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--page-gutter); }
+.card { background: white; border-radius: var(--card-radius); box-shadow: 0 6px 18px rgba(10,10,10,0.05); }
+
+/* small helpers */
+.text-muted { color: var(--muted); font-size: 13px; }
+.kv { font-weight:600; color:#333; }
+
+/* responsive helper for hiding/showing */
+.hide-sm { display: none; }
+@media (min-width: 521px) { .hide-sm { display: inline } }

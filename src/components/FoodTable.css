@@ -1,0 +1,39 @@
+/* FoodTable.css */
+.food-table-container{ background:white;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(10,10,10,0.04) }
+.food-table{ width:100%; border-collapse:collapse }
+.food-table thead{ background:#fafbfd }
+.food-table th{ padding:14px 18px; text-align:left; font-weight:600; color:#666; font-size:13px; border-bottom:1px solid #f2f2f2 }
+.food-table td{ padding:14px 18px; color:#333; font-size:14px; border-bottom:1px solid #f8f8f8 }
+.food-cell{ display:flex; align-items:center; gap:12px }
+.food-icon{ width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:#fff4e6 }
+
+/* Responsive: convert rows to stacked cards on small screens */
+@media (max-width: 720px) {
+  .food-table thead { display: none; }
+  .food-table, .food-table tbody, .food-table tr, .food-table td {
+    display: block;
+    width: 100%;
+  }
+  .food-table tr {
+    margin-bottom: 12px;
+    border-bottom: none;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(10,10,10,0.04);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .food-table td {
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .food-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #666;
+    margin-right: 12px;
+    flex: 1 0 auto;
+  }
+  .food-cell { gap:10px; }
+}
