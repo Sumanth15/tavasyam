@@ -1,34 +1,191 @@
-/* GoalProgress.css */
-.goal-progress-card{
-  padding:18px;
-  border-radius:12px;
-  background:white;
-  box-shadow: 0 6px 18px rgba(10,10,10,0.04);
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+/* Card container */
+.goal-progress-container {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 100%;
 }
 
-.gp-top{ display:flex; align-items:center; justify-content:space-between }
-.gp-top h3{ margin:0; font-size:16px }
-.gp-controls select{ padding:8px 10px; border-radius:8px; border:1px solid #eee; background:#fff }
-
-.gp-chart-wrapper{
-  position:relative;
-  height:320px;
-  width:100%;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+}
+.header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+.dropdown select {
+  padding: 8px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #666;
+  background: white;
+  cursor: pointer;
+  outline: none;
 }
 
-.gp-legend{ display:flex; gap:18px; align-items:center; padding-top:8px; border-top:1px solid #f6f6f6; font-size:13px; color:#666 }
-.legend-item{ display:flex; gap:8px; align-items:center }
-.dot{ width:10px; height:10px; border-radius:50% }
-.dot.workout{ background:#00bcd4 }
-.dot.calories{ background:#ff9800 }
-.dot.steps{ background:#9c27b0 }
-
-@media (max-width: 900px){
-  .gp-chart-wrapper{ height:260px }
+.chart-container {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
 }
-@media (max-width:520px){
-  .gp-chart-wrapper{ height:220px }
+
+.y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 6px;
+  padding-bottom: 30px; 
+  width: 48px;
+  flex-shrink: 0;
+}
+.y-axis span {
+  font-size: 12px;
+  color: #999;
+  text-align: right;
+  display: block;
+}
+
+.chart {
+  flex: 1;
+  position: relative;
+  height: 320px;     
+  min-height: 220px;
+}
+
+
+.grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 32px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 1;
+}
+.grid-line {
+  height: 1px;
+  background: #f0f0f0;
+  width: 100%;
+}
+
+.bars {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 8px;   
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch; 
+  padding-bottom: 0;
+  z-index: 2;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 0;
+  min-width: 44px;
+  height: 100%;         
+  justify-content: flex-end; 
+}
+
+.bars-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  height: calc(100% - 18px); 
+  padding: 0 8px;
+  width: 100%;
+  justify-content: center;
+}
+
+.bar {
+  width: 12px;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.35s ease;
+  min-height: 3px;                
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06) inset;
+}
+
+.bar.workout { background: #00bcd4; }
+.bar.calories { background: #ff9800; }
+.bar.steps { background: #9c27b0; }
+
+.day-label {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+  z-index: 3;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  gap: 40px;                
+  padding-top: 20px;
+  border-top: none;
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;                 
+  font-size: 14px;
+  color: #666;
+  line-height: 1;           
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.workout { background: #00bcd4; }
+.dot.calories { background: #ff9800; }
+.dot.steps { background: #9c27b0; }
+
+
+
+
+@media (max-width: 900px) {
+  .goal-progress-container { padding: 18px; }
+  .header h2 { font-size: 18px; }
+  .chart { height: 260px; min-height: 180px; }
+  .bars-wrapper { gap: 6px; padding: 0 6px; height: calc(100% - 20px); }
+  .bar { width: 10px; min-height: 2px; border-radius: 5px 5px 0 0; }
+  .y-axis { width: 40px; font-size: 11px; }
+  .day-label { font-size: 11px; }
+  .legend { gap: 20px; font-size: 12px; }
+}
+
+
+@media (max-width: 520px) {
+  .chart-container { gap: 8px; }
+  .chart { height: 220px; min-height: 160px; }
+  .bars-wrapper { gap: 4px; padding: 0 4px; height: calc(100% - 20px); }
+  .bar { width: 8px; min-height: 2px; }
+  .y-axis { display: none; } 
+  .day-label { font-size: 11px; }
+  .goal-progress-container { padding: 16px; }
+}
+
+@media (max-width: 420px) {
+  .chart { height: 200px; min-height: 140px; }
+  .bar { width: 6px; min-height: 2px; }
+  .bars-wrapper { gap: 3px; padding: 0 3px; height: calc(100% - 18px); }
 }

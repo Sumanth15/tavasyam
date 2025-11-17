@@ -22,5 +22,5 @@
   .header-center{ justify-content:flex-start; padding-left:8px }
 }
 @media (max-width: 520px) {
-  .header-center{ display:none } /* hide wide search on small mobile */
+  .header-center{ display:none } 
 }

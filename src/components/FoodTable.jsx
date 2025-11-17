@@ -1,9 +1,8 @@
-// src/components/FoodTable.jsx
 import React from 'react';
 import './FoodTable.css';
 
 const FoodTable = () => {
-  const foods = [
+  const foodData = [
     {
       id: 1,
       icon: '🌯',
@@ -36,21 +35,19 @@ const FoodTable = () => {
             <th>Carbs</th>
           </tr>
         </thead>
-
         <tbody>
-          {foods.map((f) => (
-            <tr key={f.id}>
+          {foodData.map((item) => (
+            <tr key={item.id}>
               <td data-label="Food">
                 <div className="food-cell">
-                  <span className="food-icon">{f.icon}</span>
-                  <span>{f.food}</span>
+                  <span className="food-icon">{item.icon}</span>
+                  <span>{item.food}</span>
                 </div>
               </td>
-
-              <td data-label="Meal">{f.meal}</td>
-              <td data-label="Calories">{f.calories}</td>
-              <td data-label="Priorities">{f.priorities}</td>
-              <td data-label="Carbs">{f.carbs}</td>
+              <td data-label="Meal">{item.meal}</td>
+              <td data-label="Calories">{item.calories}</td>
+              <td data-label="Priorities">{item.priorities}</td>
+              <td data-label="Carbs">{item.carbs}</td>
             </tr>
           ))}
         </tbody>
