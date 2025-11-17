@@ -19,7 +19,6 @@
   width:100%;
 }
 
-/* custom legend */
 .gp-legend{ display:flex; gap:18px; align-items:center; padding-top:8px; border-top:1px solid #f6f6f6; font-size:13px; color:#666 }
 .legend-item{ display:flex; gap:8px; align-items:center }
 .dot{ width:10px; height:10px; border-radius:50% }
@@ -27,7 +26,6 @@
 .dot.calories{ background:#ff9800 }
 .dot.steps{ background:#9c27b0 }
 
-/* responsive: reduce height on small screens */
 @media (max-width: 900px){
   .gp-chart-wrapper{ height:260px }
 }

@@ -7,7 +7,6 @@
 .food-cell{ display:flex; align-items:center; gap:12px }
 .food-icon{ width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:#fff4e6 }
 
-/* Responsive: convert rows to stacked cards on small screens */
 @media (max-width: 720px) {
   .food-table thead { display: none; }
   .food-table, .food-table tbody, .food-table tr, .food-table td {

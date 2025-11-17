@@ -10,9 +10,7 @@
 .hero-image{ flex:1; max-width:420px; display:flex; justify-content:flex-end }
 .hero-image img{ width:100%; border-radius:12px; object-fit:cover }
 
-/* responsive: on smaller screens show image ABOVE the content */
 @media (max-width: 968px){
-  /* column-reverse will put image first in DOM sequence (image above content) */
   .hero-banner{ flex-direction: column-reverse; text-align:center; padding:22px }
   .hero-content h1{ font-size:22px }
   .hero-image{ max-width:100%; width:100%; margin-bottom:12px }
