@@ -1,62 +1,15 @@
-/* FoodTable.css */
-/* .food-table-container{ background:white;border-radius:12px;overflow:hidden; }
-.food-table{ width: 100%;
-  border-collapse: separate;   
-  border-spacing: 0 10px; }
-.food-table thead{ background: #f4f7fb; }
-.food-table th{ padding:14px 18px; text-align:left; font-weight:600; color:#666; font-size:13px; border-bottom:1px solid #f2f2f2 }
-.food-table td{ padding: 14px 18px;
-  color: #333;
-  font-size: 14px;
-  margin-top: 10px;
-  border-bottom: none;  }
-.food-cell{ display:flex; align-items:center; gap:12px; }
-.food-icon{ width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; background:#fff4e6 }
-
-@media (max-width: 720px) {
-  .food-table thead { display: none; }
-  .food-table, .food-table tbody, .food-table tr, .food-table td {
-    display: block;
-    width: 100%;
-  }
-  .food-table tr {
-    background: #fff;
-  box-shadow: 0 4px 10px rgba(10,10,10,0.03);
-  border-radius: 8px;
-  }
-  .food-table td {
-    padding: 12px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .food-table td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    color: #666;
-    margin-right: 12px;
-    flex: 1 0 auto;
-  }
-  .food-cell { gap:10px; }
-} */
-
-
-
-
 
 .food-table-container {
  
 
 }
 
-/* ⭐ Added spacing between rows */
 .food-table {
   width: 100%;
-  border-collapse: separate;   /* allow spacing */
-  border-spacing: 0 10px;      /* vertical gap between rows */
+  border-collapse: separate;   
+  border-spacing: 0 10px;     
 }
 
-/* Table header */
 
 
 .food-table th {
@@ -66,22 +19,19 @@
   font-size: 13px;
 }
 
-/* Table body cells */
 .food-table td {
   padding: 14px 18px;
   color: #333;
   font-size: 14px;
-  border-bottom: none;         /* removed because we now use spacing */
+  border-bottom: none;         
 }
 
-/* Each row card styling */
 .food-table tbody tr {
   background: #fff;
   box-shadow: 0 4px 12px rgba(10,10,10,0.04);
   border-radius: 10px;
 }
 
-/* Smooth rounded corners for each row */
 .food-table tbody tr td:first-child {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -108,9 +58,6 @@
    box-shadow: inset 0 0 0 2px rgba(230, 154, 14, 0.15);
 }
 
-/* --------------------------- */
-/* MOBILE VIEW */
-/* --------------------------- */
 
 @media (max-width: 720px) {
   .food-table thead {

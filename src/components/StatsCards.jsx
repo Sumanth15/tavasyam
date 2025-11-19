@@ -2,7 +2,6 @@
 import React from 'react';
 import './StatsCards.css';
 
-/* Small SVG icons (inlined) - unchanged */
 const SmallWorkout = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
     <path d="M13.0933 16H18.9067M30 19.3333V12.6667M2 19.3333V12.6667M22.9067 24C26.1067 24 26.9067 22.2 26.9067 20V12C26.9067 9.8 26.1067 8 22.9067 8C19.7067 8 18.9067 9.8 18.9067 12V20C18.9067 22.2 19.7067 24 22.9067 24ZM9.09333 24C5.89333 24 5.09333 22.2 5.09333 20V12C5.09333 9.8 5.89333 8 9.09333 8C12.2933 8 13.0933 9.8 13.0933 12V20C13.0933 22.2 12.2933 24 9.09333 24Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -22,7 +21,6 @@ const SmallSteps = () => (
   </svg>
 );
 
-/* Blue / Orange / Purple decorative SVGs — unique gradient ids to avoid collisions */
 
 const BlueWave = () => (
   <svg className="card-wave" xmlns="http://www.w3.org/2000/svg" width="252" height="120" viewBox="0 0 252 120" fill="none" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
@@ -84,7 +82,6 @@ const StatsCards = () => {
                 </div>
        
 
-          {/* decorative per-card SVG (unique per card) */}
           <div className="stat-wave-wrapper" aria-hidden="true">
             {s.wave}
           </div>

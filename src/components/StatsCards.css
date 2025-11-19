@@ -6,23 +6,23 @@
   width: 100%;
 }
 
-/* card */
+
 .stat-card {
   position: relative;
-  padding: 22px 22px 28px 22px;   /* top, right, bottom, left */
+  padding: 22px 22px 28px 22px;  
   border-radius: 12px;
   min-height: 140px;
   color: white;
   overflow: hidden;
   box-sizing: border-box;
 
-  /* layout: icon top-left, text bottom-left */
+  
   display: flex;
   flex-direction: row;
-  justify-content: flex-start; /* push text to bottom */
+  justify-content: flex-start; 
 }
 
-/* overlay */
+
 .stat-card::before {
   content: "";
   position: absolute;
@@ -38,26 +38,24 @@
 }
 
 
-/* small rounded square that contains the icon (top-left) */
 .stat-icon {
   position: relative;
-  z-index: 3; /* above overlay and wave */
+  z-index: 3; 
   width: 56px;
   height: 56px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.12); /* translucent light rectangle */
+  background: rgba(255,255,255,0.12); 
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   flex-shrink: 0;
-  margin-bottom: 12px; /* small gap between icon and text area above bottom */
-  margin-left: 4px;    /* slight inset from left edge */
+  margin-bottom: 12px; 
+  margin-left: 4px;   
   box-shadow: 0 6px 18px rgba(0,0,0,0.06) inset;
 }
 
-/* ensure any inline svg/img inside icon scales and stays white */
 .stat-icon svg,
 .stat-icon img {
   width: 24px;
@@ -67,18 +65,16 @@
   fill: currentColor;
 }
 
-/* info block anchored bottom-left */
 .stat-info {
   position: relative;
-  z-index: 3; /* above overlay and wave */
-  bottom: 50%; /* position it in middle */
+  z-index: 3; 
+  bottom: 50%; 
   transform: translateY(50%);
   margin-top: 8px;
   margin-left: 4px;
   line-height: 1.0;
 }
 
-/* title and value styles */
 .stat-info h3 {
   margin: 0;
   font-size: 16px;
@@ -93,28 +89,23 @@
   font-weight: 400;
 }
 
-/* wrapper for per-card wave svg (fills card) */
 .stat-wave-wrapper {
   position: absolute;
   inset: 0;
-  z-index: 0; /* behind content but above background */
+  z-index: 0; 
   pointer-events: none;
   display: block;
 }
 
-/* svg inside wrapper - fill area and anchor to bottom-right-ish */
 .card-wave {
   position: absolute;
-    /* slight overflow to make it feel organic */
-  bottom: 10%;   /* push down a little so it peeks from bottom */
+  bottom: 10%;   
   width: 100%;
   height: auto;
   opacity: 0.72;
   transform-origin: center bottom;
-  /* small nudge if needed: transform: translateY(6%); */
 }
 
-/* responsive tweaks */
 @media (max-width: 900px) {
   .stats-cards-container { grid-template-columns: repeat(2, 1fr); }
   .stat-card { min-height: 120px; padding: 18px; }

@@ -2,8 +2,6 @@
 import React from 'react';
 import './App.css'; // keep your app layout css (the shell)
 import ErrorBoundary from './ErrorBoundary';
-
-// Import your components (paths must match your project)
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import HeroBanner from './components/HeroBanner';
@@ -13,11 +11,6 @@ import FoodTable from './components/FoodTable';
 import MySchedule from './components/MySchedule';
 import Goals from './components/Goals';
 import UpgradeCard from './components/UpgradeCard';
-
-/*
-  This debug app uses ErrorBoundary to catch any component errors and continue rendering.
-  It will show a friendly error box where a component fails so you can identify the culprit.
-*/
 
 export default function App() {
   return (
