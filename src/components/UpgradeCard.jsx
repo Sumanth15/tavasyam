@@ -18,8 +18,6 @@ const UpgradeCard = () => {
         <img src={Group13} alt="bg-shape" className="upgrade-bg-svg" />
         <img src={Pic} alt="character" className="upgrade-front-img" />
       </div>
-
-      <div className="sparkles">✨</div>
     </div>
   );
 };
