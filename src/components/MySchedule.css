@@ -1,20 +1,125 @@
 /* MySchedule.css */
-.schedule-container{ background:white;border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(10,10,10,0.04) }
-.schedule-header{ display:flex;justify-content:space-between;align-items:center;margin-bottom:12px }
-.schedule-header h2{ margin:0;font-size:16px }
-.view-all{ color:#ff9800; text-decoration:none; font-weight:600 }
+/* .schedule-container{ background:#f4f7fb;border-radius:12px; }
+.schedule-header{ display:flex;justify-content:space-between;align-items:center;margin-bottom:10px }
+.schedule-header h2{ margin:0;font-size:16px; font-weight: 500; }
+.view-all{ color:#ff9800; text-decoration:none; font-size:12px; font-weight:500 }
 
 .schedule-list{ display:flex; flex-direction:column; gap:10px }
-.schedule-card{ display:flex; justify-content:space-between; align-items:center; background:#fafafa; padding:12px; border-radius:10px }
-.schedule-content{ display:flex; gap:12px; align-items:center }
+.schedule-card{ display:flex; justify-content:space-between; align-items:center; background:#ffffff; padding:16px; border-radius:10px;box-shadow:0 6px 18px rgba(10,10,10,0.04)  }
+.schedule-content{ display:flex; ;gap:12px; align-items:center }
 .schedule-icon{ width:56px; height:56px; background:white; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:22px }
-.schedule-info h3{ margin:0; font-size:14px }
+.schedule-info h3{ margin:0; font-size:14px ; font-weight: 400;}
 .activity-name{ font-size:13px; color:#666 }
 .activity-time{ font-size:12px; color:#999 }
-.schedule-detail{ color:#ff9800; font-weight:700 }
+.schedule-detail{ background-color:#FFF7ED; color: #ff9800;padding: 4px 8px; align-items: flex-start;border-radius: 10px; font-weight:600; font-size:10px } 
 
 @media (max-width: 520px) {
   .schedule-card{ flex-direction:row; gap:10px; align-items:center; padding:10px }
   .schedule-info h3{ font-size:13px }
   .schedule-icon{ width:44px; height:44px; font-size:18px }
+} */
+
+
+
+.schedule-container {
+  background: #f4f7fb;
+  border-radius: 12px;
+  
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.schedule-header h2 { margin: 0; font-size: 16px; font-weight: 500; }
+.view-all { color: #ff9800; text-decoration: none; font-size: 12px; font-weight: 500; }
+
+.schedule-list { display: flex; flex-direction: column; gap: 10px; }
+
+/* Card layout: left(day+icon) | middle(info) | right(detail) */
+.schedule-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #ffffff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(10,10,10,0.04);
+}
+
+/* LEFT: day above icon */
+.schedule-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 72px; /* keeps consistent left column width */
+  gap: 8px;
+}
+
+/* Day label */
+.schedule-day {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  letter-spacing: 0.4px;
+}
+
+/* Icon box */
+.schedule-icon {
+  width: 40px;
+  height: 40px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.schedule-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* MIDDLE: activity + time stacked (left aligned) */
+.schedule-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1; /* take remaining space */
+}
+.activity-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: #222;
+  margin-top: 20px;
+}
+.activity-time {
+  font-size: 12px;
+  color: #777;
+}
+
+/* RIGHT: detail badge */
+.schedule-detail {
+  background-color: #FFF7ED;
+  color: #ff9800;
+  margin-top: 20px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* Responsive tweaks */
+@media (max-width: 520px) {
+  .schedule-container { padding: 12px; }
+  .schedule-card { padding: 10px; gap: 10px; }
+  .schedule-left { min-width: 60px; gap: 6px; }
+  .schedule-icon { width: 44px; height: 44px; }
+  .schedule-day { font-size: 11px; }
+  .activity-name { font-size: 13px; }
+  .activity-time { font-size: 12px; }
+  .schedule-detail { font-size: 11px; padding: 5px 8px; }
 }

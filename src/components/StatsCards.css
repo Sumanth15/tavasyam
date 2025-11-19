@@ -1,3 +1,4 @@
+/* grid */
 .stats-cards-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -5,68 +6,129 @@
   width: 100%;
 }
 
-
+/* card */
 .stat-card {
   position: relative;
-  padding: 22px;
+  padding: 22px 22px 28px 22px;   /* top, right, bottom, left */
   border-radius: 12px;
-  min-height: 120px;
+  min-height: 140px;
   color: white;
   overflow: hidden;
+  box-sizing: border-box;
+
+  /* layout: icon top-left, text bottom-left */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* push text to bottom */
+}
+
+/* overlay */
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(135deg,
+              rgba(0,0,0,0.00) 44%,
+              rgba(0,0,0,0.08) 60%,
+              rgba(0,0,0,0.16) 100%);
+  mix-blend-mode: multiply;
+  border-radius: inherit;
 }
 
 
+/* small rounded square that contains the icon (top-left) */
 .stat-icon {
+  position: relative;
+  z-index: 3; /* above overlay and wave */
   width: 56px;
   height: 56px;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255,255,255,0.12); /* translucent light rectangle */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  flex-shrink: 0;
+  margin-bottom: 12px; /* small gap between icon and text area above bottom */
+  margin-left: 4px;    /* slight inset from left edge */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06) inset;
 }
 
-
-.stat-info h3 {
-  margin: 8px 0 0 0;
-  font-size: 18px;
-}
-.stat-info p {
-  margin: 6px 0 0 0;
-  opacity: 0.94;
-}
-
-
-.wave-bg {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;     
-  pointer-events: none;
-  opacity: 0.6;
-
-  z-index: 0;            
-  
+/* ensure any inline svg/img inside icon scales and stays white */
+.stat-icon svg,
+.stat-icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  color: white;
+  fill: currentColor;
 }
 
-.stat-icon,
+/* info block anchored bottom-left */
 .stat-info {
   position: relative;
-  z-index: 2;
+  z-index: 3; /* above overlay and wave */
+  bottom: 50%; /* position it in middle */
+  transform: translateY(50%);
+  margin-top: 8px;
+  margin-left: 4px;
+  line-height: 1.0;
 }
 
-@media (max-width: 900px) {
-  .stats-cards-container { 
-    grid-template-columns: repeat(2, 1fr); 
-  }
+/* title and value styles */
+.stat-info h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
+
+.stat-info p {
+  margin: 8px 0 0 0;
+  font-size: 16px;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+/* wrapper for per-card wave svg (fills card) */
+.stat-wave-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* behind content but above background */
+  pointer-events: none;
+  display: block;
+}
+
+/* svg inside wrapper - fill area and anchor to bottom-right-ish */
+.card-wave {
+  position: absolute;
+    /* slight overflow to make it feel organic */
+  bottom: 10%;   /* push down a little so it peeks from bottom */
+  width: 100%;
+  height: auto;
+  opacity: 0.72;
+  transform-origin: center bottom;
+  /* small nudge if needed: transform: translateY(6%); */
+}
+
+/* responsive tweaks */
+@media (max-width: 900px) {
+  .stats-cards-container { grid-template-columns: repeat(2, 1fr); }
+  .stat-card { min-height: 120px; padding: 18px; }
+  .stat-icon { width: 52px; height: 52px; border-radius: 10px; }
+  .stat-info h3 { font-size: 18px; }
+  .stat-info p { font-size: 14px; }
+  .card-wave { width: 200%; right: -30%; bottom: -12%; }
+}
+
 @media (max-width: 520px) {
-  .stats-cards-container { 
-    grid-template-columns: 1fr; 
-  }
+  .stats-cards-container { grid-template-columns: 1fr; }
+  .stat-card { min-height: 110px; padding: 14px; border-radius: 10px; }
+  .stat-icon { width: 48px; height: 48px; }
+  .stat-info h3 { font-size: 16px; }
+  .stat-info p { font-size: 13px; }
+  .card-wave { width: 220%; right: -40%; bottom: -18%; }
 }

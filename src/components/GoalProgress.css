@@ -55,7 +55,7 @@
 .chart {
   flex: 1;
   position: relative;
-  height: 320px;     
+  height: 200px;     
   min-height: 220px;
 }
 
@@ -112,7 +112,7 @@
 }
 
 .bar {
-  width: 12px;
+  width: 8px;
   border-radius: 6px 6px 0 0;
   transition: height 0.35s ease;
   min-height: 3px;                
