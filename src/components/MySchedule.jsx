@@ -1,7 +1,7 @@
 import React from 'react';
 import './MySchedule.css';
 import Icon1 from '../assets/Group 107 1.png';
-import Icon2 from '../assets/Imagelegstreach.png';
+import Icon2 from '../assets/Imagelegstreact.png';
 import Icon3 from '../assets/Image 98.png';
 
 const MySchedule = () => {
